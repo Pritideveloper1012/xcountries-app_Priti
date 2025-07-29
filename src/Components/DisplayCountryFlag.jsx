@@ -51,29 +51,25 @@ if (loading) {
  
       <div className='App'>
        
+        <Typography variant='h4' align="center" gutterBottom>
+        Country List
+      </Typography>
 
-        <Typography variant='h1'>
-           Country List
-        </Typography>
-        <SearchBar  onSearch={handleSearch}/>
+      <SearchBar onSearch={handleSearch} />
 
-        <Container sx={{width:"100%"}}>
-          {countries.length === 0 ? (
-         <Typography variant="body1">Loading...</Typography>
-         ) : (
-        filter.length === 0 ? (
-      <Typography>No countries found</Typography>
-      ) : (
-      <Grid container spacing={3}>
-       {filter.map((country, index) => (
-        <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-          <CountryCard country={country} />
-        </Grid>
-       ))}
-     </Grid>
-    )
-    )}
-    </Container>
+      <Container sx={{ width: "100%", mt: 4 }}>
+        {filter.length === 0 ? (
+          <Typography variant="body1" align="center">No countries found</Typography>
+        ) : (
+          <Grid container spacing={3}>
+            {filter.map((country, index) => (
+              <Grid sx={{ gridColumn: 'span 4' }}key={index}>
+                <CountryCard country={country} />
+              </Grid>
+            ))}
+          </Grid>
+        )}
+      </Container>
        
 
       </div>
