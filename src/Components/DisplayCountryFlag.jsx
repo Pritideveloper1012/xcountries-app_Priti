@@ -21,8 +21,9 @@ useEffect(() => {
       const res = await axios.get('https://restcountries.com/v3.1/all');
       setCountries(res.data);
       setFilter(res.data)
+      setLoading(false)
     } catch (error) {
-      console.error("Error fetching countries:", error);  
+      console.error("Error fetching data:", error);  
     }finally {
       setLoading(false);  
     }
