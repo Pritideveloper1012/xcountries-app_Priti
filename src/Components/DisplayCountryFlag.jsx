@@ -12,19 +12,21 @@ const DisplayCountryFlag=()=>{
     const [countries,setCountries]=useState([]);
     const [filter,setFilter]=useState([])
 
-    useEffect(()=>{
-         axios.get(`https://xcountries-backend.azurewebsites.net/all`)
-     .then((res)=>{
-       console.log("res",res.data);
-       setCountries(res.data);
-       setFilter(res.data);
-     })
-     .catch((err)=>{
-      console.error("Error fetching countries", err);
-      
-     })
+  
 
-    },[])
+useEffect(() => {
+  const fetchCountries = async () => {
+    try {
+      const res = await axios.get('https://restcountries.com/v3.1/all');
+      setCountries(res.data);
+    } catch (error) {
+      console.error("Error fetching countries:", error);  // This is required
+    }
+  };
+
+  fetchCountries();
+}, []);
+
 
     const handleSearch=(query)=>{
   const filterData=countries.filter(country=>(
