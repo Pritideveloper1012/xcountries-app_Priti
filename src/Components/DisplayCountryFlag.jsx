@@ -18,12 +18,13 @@ const DisplayCountryFlag=()=>{
 useEffect(() => {
   const fetchCountries = async () => {
     try {
-      const res = await axios.get('https://restcountries.com/v3.1/all');
+      const res = await axios.get('https://xcountries-backend.azurewebsites.net/all');
       setCountries(res.data);
       setFilter(res.data)
       setLoading(false)
     } catch (error) {
-      console.error("Error fetching data:", error);  
+      console.error(`Error fetching data: ${error}`);
+
     }finally {
       setLoading(false);  
     }
