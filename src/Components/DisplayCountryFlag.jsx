@@ -19,6 +19,7 @@ useEffect(() => {
     try {
       const res = await axios.get('https://restcountries.com/v3.1/all');
       setCountries(res.data);
+      setFilter(res.data)
     } catch (error) {
       console.error("Error fetching countries:", error);  // This is required
     }
@@ -50,7 +51,7 @@ useEffect(() => {
   <Typography variant="body1">Loading...</Typography>
 ) : (
   filter.length === 0 ? (
-    <Typography>No countries found</Typography>
+     <Typography>No countries found</Typography>
   ) : (
     <Grid container spacing={3}>
       {filter.map((country, index) => (
