@@ -13,7 +13,7 @@ const DisplayCountryFlag=()=>{
     const [filter,setFilter]=useState([])
 
     useEffect(()=>{
-         axios.get(`https://restcountries.com/v3.1/all?fields=name,flags`)
+         axios.get(`https://xcountries-backend.azurewebsites.net/all`)
      .then((res)=>{
        console.log("res",res.data);
        setCountries(res.data);
