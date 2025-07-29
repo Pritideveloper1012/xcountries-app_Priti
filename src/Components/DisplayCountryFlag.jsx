@@ -39,11 +39,16 @@ const DisplayCountryFlag=()=>{
       <div className='App'>
         
         <Typography variant='h1'>
-           country LIst
+           Country List
         </Typography>
         <SearchBar  onSearch={handleSearch}/>
 
         <Container sx={{width:"100%"}}>
+          {filter.length==0 ?(
+            <Typography variant="body1">Loading...</Typography>
+          ):(
+            
+         
            
            <Grid container spacing={3}>
               {filter.map((country, index) => (
@@ -52,6 +57,7 @@ const DisplayCountryFlag=()=>{
                  </Grid>
                ))}
           </Grid>
+           )}
         </Container>
        
 
