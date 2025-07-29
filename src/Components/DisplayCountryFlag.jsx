@@ -20,7 +20,7 @@ const DisplayCountryFlag=()=>{
        setFilter(res.data);
      })
      .catch((err)=>{
-      console.log("fetching error",err);
+      console.error("Error fetching countries", err);
       
      })
 
@@ -44,20 +44,21 @@ const DisplayCountryFlag=()=>{
         <SearchBar  onSearch={handleSearch}/>
 
         <Container sx={{width:"100%"}}>
-          {filter.length==0 ?(
-            <Typography variant="body1">Loading...</Typography>
-          ):(
-            
-         
-           
-           <Grid container spacing={3}>
-              {filter.map((country, index) => (
-               <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-                <CountryCard country={country} />
-                 </Grid>
-               ))}
-          </Grid>
-           )}
+          {countries.length === 0 ? (
+  <Typography variant="body1">Loading...</Typography>
+) : (
+  filter.length === 0 ? (
+    <Typography>No countries found</Typography>
+  ) : (
+    <Grid container spacing={3}>
+      {filter.map((country, index) => (
+        <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+          <CountryCard country={country} />
+        </Grid>
+      ))}
+    </Grid>
+  )
+)}
         </Container>
        
 

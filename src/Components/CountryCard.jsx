@@ -8,7 +8,7 @@ const CountryCard=({country})=>{
               component="img"
               height="140"
               image={country.flags.svg}
-              alt={`${country.flags.name} flag`}
+             alt={`Flag of ${country.name.common}`}
             />
 
             <CardContent>
